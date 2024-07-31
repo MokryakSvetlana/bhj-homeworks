@@ -17,6 +17,19 @@ class Game {
   }
 
   registerEvents() {
+    let checkLetter = (e) => {
+      const current = this.currentSymbol;
+      if (e.key === 'Shift') {
+        return;
+      }
+      if (current.textContent === e.key) {
+        this.success()
+      }
+      else {
+        this.fail()
+      }
+    }
+    document.addEventListener('keydown', checkLetter);
     /*
       TODO:
       Написать обработчик события, который откликается
